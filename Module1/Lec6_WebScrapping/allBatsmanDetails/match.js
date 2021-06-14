@@ -3,10 +3,11 @@ const cheerio=require("cheerio");
 const { text } = require("cheerio/lib/api/manipulation");
 
 
-let link="https://www.espncricinfo.com/series/ipl-2020-21-1210595/delhi-capitals-vs-mumbai-indians-final-1237181/full-scorecard";
+//let link="https://www.espncricinfo.com/series/ipl-2020-21-1210595/delhi-capitals-vs-mumbai-indians-final-1237181/full-scorecard";
 //request => Async fxn
-request(link, callback);
-
+function getMatchDetails(matchLink){
+request(matchLink, callback);
+}
 function callback(error, response,html){
     evalHTML(html);
 }
@@ -47,3 +48,5 @@ function evalHTML(html){
 
     }
 }
+
+module.exports = getMatchDetails;
